@@ -10,11 +10,17 @@ namespace application\controllers;
 
 use application\core\Controller;
 
+
+
 class OtakoyiController extends Controller
 {
+
+    /**
+     * echo view index
+     */
     public function indexAction()
     {
 
-        echo 'Otakoyi page';
+        $this->view->render('OTAK ');
     }
 }

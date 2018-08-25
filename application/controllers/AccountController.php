@@ -4,14 +4,22 @@ namespace application\controllers;
 
 use application\core\Controller;
 
-class AccountController extends Controller {
+class AccountController extends Controller
+{
 
-	public function loginAction() {
-		echo 'Сторінка входу';
-	}
+    /**
+     * echo view login
+     */
+    public function loginAction() {
+        $this->view->render('Вхід');
+    }
 
-	public function registerAction() {
-        echo 'Сторінка виходу';
-	}
+
+    /**
+     * echo view register
+     */
+    public function registerAction() {
+        $this->view->render('Регістрація');
+    }
 
 }

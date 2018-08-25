@@ -23,4 +23,3 @@ $router = new Router;
 
 $router->run();
 
-echo '<br>' .'Привіт команда Отакої!!!' . '<br>';

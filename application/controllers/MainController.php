@@ -9,10 +9,14 @@ use application\core\Controller;
 class MainController extends Controller
 {
 
+    /**
+     * echo view index
+     * $title
+     *
+     */
 	public function indexAction()
     {
-
-	    echo 'Main page';
+        $this->view->render('Головна сторінка через контроллер через змінну $title');
 	}
 
 }
