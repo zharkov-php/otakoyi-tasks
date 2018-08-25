@@ -5,9 +5,6 @@ require 'application/lib/Dev.php';
 use application\core\Router;
 
 
-echo '<br>' .'Привіт команда Отакої!!!' . '<br>';
-
-
 /**
  * function autoload include class
  * функція автозагрузки підключених класів
@@ -25,3 +22,5 @@ session_start();
 $router = new Router;
 
 $router->run();
+
+echo '<br>' .'Привіт команда Отакої!!!' . '<br>';
