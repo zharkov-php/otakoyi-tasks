@@ -35,7 +35,7 @@
                             <?php foreach ($news as $val): ?>
 
                                 <tr>
-                                    <td><?php echo $val['message']; ?></td>
+                                    <td><?php echo $val['task']; ?></td>
                                     <td><?php echo $val['name']; ?></td>
                                     <td><?php echo $val['email']; ?></td>
                                     <td><?php echo $val['date']; ?></td>

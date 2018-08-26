@@ -65,7 +65,28 @@ class AdminController extends Controller
 	public function addAction()
     {
 
-		$this->view->render('Добавить пост');
+        if (!empty($_POST)) {
+
+
+            if ( !$_POST['g-recaptcha-response'] )
+                exit('Заполните капчу');
+
+            $url = 'https://www.google.com/recaptcha/api/siteverify';
+            $key = '6LcegmwUAAAAAH_-g4cYPNa9cL7mX1Lc6atQ1CFu';
+            $query = $url.'?secret='.$key.'&response='.$_POST['g-recaptcha-response'].'&remoteip='.$_SERVER['REMOTE_ADDR'];
+
+            $data = json_decode(file_get_contents($query));
+
+            if ( $data->success == false)
+                exit('Капча введена неверно');
+
+
+
+
+
+            $this->model->postAdd($_POST);
+        }
+        $this->view->redirect('/');
 	}
 
 

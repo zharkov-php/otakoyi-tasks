@@ -8,9 +8,11 @@
     <!-- DataTables -->
     <link rel="stylesheet" href="/public/css/dataTables.bootstrap4.css">
     <script src="/public/javascript/form.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 <?php echo $content ;?>
+
 
 
 <!-- jQuery -->

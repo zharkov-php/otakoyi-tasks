@@ -7,6 +7,7 @@
 return [
 	'all' => [
 		'login',
+        'add',
 	],
 	'authorize' => [
 		//
