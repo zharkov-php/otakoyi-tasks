@@ -12,10 +12,10 @@ return [
         'action' => 'login',
     ],
 
-    'account/register' => [
+   /* 'account/register' => [
         'controller' => 'account',
         'action' => 'register',
-    ],
+    ],*/
 
     'otakoyi' => [
         'controller' => 'otakoyi',
