@@ -26,7 +26,7 @@
                     <div class="card-header">
                         <h3 class="card-title">
                             <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Написати</button>
-                            <a href="account/login"> <button type="button" class="btn btn-lg btn-secondary"  >Адмінка</button></a>
+                            <a href="/admin/login"> <button type="button" class="btn btn-lg btn-secondary"  >Адмінка</button></a>
 
                             <center><h1>Книга скарг та пропозицій</h1></center>
                         </h3>

@@ -16,6 +16,7 @@ class OtakoyiController extends Controller
 {
 
     /**
+     * otakoyi/index (controller/view)
      * echo view index
      */
     public function indexAction()

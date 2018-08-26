@@ -12,6 +12,7 @@
                     <div class="card-header">
                         <h3 class="card-title">
                             <a href="/"> <button type="button" class="btn btn-lg btn-secondary"  >Сайт</button></a>
+                            <a href="/admin/logout"> <button type="button" class="btn btn-lg btn-secondary"  >Logout</button></a>
 
                             <center><h1>Адмінка</h1></center>
                         </h3>

@@ -13,10 +13,13 @@
     <link rel="stylesheet" href="/public/css/dataTables.bootstrap4.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/public/css/adminlte.min.css">
-    <script src="/public/scripts/form.js"></script>
+
 </head>
 <body>
 <?php echo $content ;?>
+
+<script src="/public/javascript/popper.js"></script>
+
 
 
 <!-- jQuery -->

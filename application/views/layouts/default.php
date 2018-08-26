@@ -7,7 +7,7 @@
 
     <!-- DataTables -->
     <link rel="stylesheet" href="/public/css/dataTables.bootstrap4.css">
-    <script src="/public/scripts/form.js"></script>
+    <script src="/public/javascript/form.js"></script>
 </head>
 <body>
 <?php echo $content ;?>

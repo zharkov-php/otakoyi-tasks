@@ -1,4 +1,7 @@
+
 RewriteEngine on
+
+AddDefaultCharset utf-8
 
 # if a directory or a file exists, use it directly
 RewriteCond %{REQUEST_FILENAME} !-f

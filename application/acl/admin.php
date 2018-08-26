@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * role
+ * ролі
+ */
 return [
 	'all' => [
 		'login',
@@ -16,5 +20,6 @@ return [
 		'add',
 		'edit',
 		'delete',
+
 	],
 ];

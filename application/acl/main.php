@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * role
+ * ролі
+ */
 return [
 	'all' => [
 		'index',

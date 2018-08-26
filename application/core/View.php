@@ -89,4 +89,25 @@ class View
         }
         exit;
     }
+
+
+    /**
+     * Function views message json
+     * @param $status
+     * @param $message
+     */
+    public function message($status, $message)
+    {
+        exit(json_encode(['status' => $status, 'message' => $message]));
+    }
+
+
+    /**
+     * Function redirect json
+     * @param $url
+     */
+    public function location($url)
+    {
+        exit(json_encode(['url' => $url]));
+    }
 }

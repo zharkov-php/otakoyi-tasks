@@ -6,15 +6,28 @@ use application\core\Controller;
 use application\models\Main;
 
 
-class AdminController extends Controller {
+class AdminController extends Controller
+{
 
-	public function __construct($route) {
+
+    /**
+     * AdminController constructor.
+     * @param $route
+     */
+	public function __construct($route)
+    {
 		parent::__construct($route);
 		$this->view->layout = 'admin';
 	}
 
 
-    public function tasksAction() {
+
+
+    /**
+     *admin/tasks (controller/view)
+     */
+    public function tasksAction()
+    {
 
 	    $mainModel = new Main();
         $result = $mainModel->getTasks();
@@ -23,40 +36,67 @@ class AdminController extends Controller {
             'news' => $result,
         ];
 
-
-
-
         $this->view->render('Головна сторінка через контроллер через змінну ', $vars);
     }
 
-	public function loginAction()
+
+    /**
+     * admin/login (controller/view)
+     */
+    public function loginAction()
     {
+        if (isset($_SESSION['admin'])) {
+            $this->view->redirect('/admin/tasks');
+        }
+        if (!empty($_POST)) {
+            if (!$this->model->loginValidate($_POST)) {
+                $this->view->message('error', $this->model->error);
+            }
+            $_SESSION['admin'] = true;
+            $this->view->redirect('/admin/tasks');
+        }
+        $this->view->render('Вход');
+    }
 
-		$this->view->render('Вход');
-	}
 
+    /**
+     * admin/add (controller/action)
+     */
 	public function addAction()
     {
-
-        $mainModel = new Main();
-
 
 		$this->view->render('Добавить пост');
 	}
 
-	public function editAction() {
+
+    /**
+     * admin/edit (controller/action)
+     */
+	public function editAction()
+    {
 
 		$this->view->render('Редактировать пост');
 	}
 
-	public function deleteAction() {
 
-		$this->view->redirect('admin/posts');
+    /**
+     * admin/delete (controller/action)
+     */
+	public function deleteAction()
+    {
+
+		$this->view->redirect('/admin/tasks');
 	}
 
-	public function logoutAction() {
 
-		$this->view->redirect('admin/login');
+    /**
+     * admin/logout (controller/action)
+     */
+	public function logoutAction()
+    {
+
+        unset($_SESSION['admin']);
+        $this->view->redirect('/');
 	}
 
 
