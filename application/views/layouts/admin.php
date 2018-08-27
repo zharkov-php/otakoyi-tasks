@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/public/css/dataTables.bootstrap4.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/public/css/adminlte.min.css">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
 </head>
 <body>

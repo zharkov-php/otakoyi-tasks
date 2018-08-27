@@ -89,6 +89,24 @@ class Admin extends Model
     }
 
 
+
+
+    public function postEdit($post, $id)
+    {
+        $params = [
+            'id' => $id,
+            'name'    => $post['name'],
+            'email'   => $post['email'],
+            'site'    => $post['site'],
+            'task'    => $post['task'],
+        ];
+        $this->db->query('UPDATE tasks SET name = :name, email = :email, site = :site, task = :task WHERE id = :id', $params);
+    }
+
+
+    /**
+     * @return mixed
+     */
     function userIP(){
         $ip = $_SERVER['REMOTE_ADDR'];
 
@@ -96,7 +114,11 @@ class Admin extends Model
     }
 
 
-
+    /**
+     * Function search task by id
+     * @param $id
+     * @return mixed
+     */
     public function isPostExists($id) {
         $params = [
             'id' => $id,
@@ -105,7 +127,10 @@ class Admin extends Model
     }
 
 
-
+    /**
+     * Function delete task
+     * @param $id
+     */
     public function postDelete($id)
     {
         $params = [
@@ -115,6 +140,13 @@ class Admin extends Model
         //unlink('public/materials/'.$id.'.jpg');
     }
 
+
+    public function postData($id) {
+        $params = [
+            'id' => $id,
+        ];
+        return $this->db->row('SELECT * FROM tasks WHERE id = :id', $params);
+    }
 
 
 

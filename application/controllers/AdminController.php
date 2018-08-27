@@ -86,7 +86,10 @@ class AdminController extends Controller
 
 
 
-            $this->model->postAdd($_POST);
+            $id = $this->model->postAdd($_POST);
+            if (!$id) {
+                $this->view->message('success', 'Ошибка обработки запроса');
+            }
         }
         $this->view->redirect('/');
 	}
@@ -98,7 +101,22 @@ class AdminController extends Controller
 	public function editAction()
     {
 
-		$this->view->render('Редактировать пост');
+        $admin = new Admin();
+
+        if (!$admin->isPostExists($this->route['id'])) {
+            $this->view->errorCode(404);
+        }
+        if (!empty($_POST)) {
+            if (!$admin->postValidate($_POST, 'edit')) {
+                $this->view->message('error', $admin->error);
+            }
+            $admin->postEdit($_POST, $this->route['id']);
+        }
+        $vars = [
+            'data' => $admin->postData($this->route['id'])[0],
+        ];
+        $this->view->render('Редактировать пост', $vars);
+
 	}
 
 
@@ -128,6 +146,9 @@ class AdminController extends Controller
         unset($_SESSION['admin']);
         $this->view->redirect('/');
 	}
+
+
+
 
 
 }
