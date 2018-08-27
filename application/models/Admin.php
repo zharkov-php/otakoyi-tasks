@@ -80,10 +80,24 @@ class Admin extends Model
             'email'   => $post['email'],
             'site'    => $post['site'],
             'task'    => $post['task'],
-            'date'    => date("Y-m-d H:i:s") ,
+            'date'    => date("Y-m-d H:i:s"),
+            'ip'    => $this->userIP(),
+
         ];
-        $this->db->query('INSERT INTO tasks VALUES (:id, :name, :email, :site, :task, :date)', $params);
+        $this->db->query('INSERT INTO tasks VALUES (:id, :name, :email, :site, :task, :date, :ip)', $params);
         return $this->db->lastInsertId();
+    }
+
+
+    function userIP(){
+        $ip = $_SERVER['REMOTE_ADDR'];
+        if( !$ip )
+            return false;
+        if( !empty( $_SERVER['HTTP_CLIENT_IP'] ) )
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        if( !empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) )
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        return sprintf( '%u' , ip2long( $ip ) );
     }
 
 
