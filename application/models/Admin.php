@@ -91,13 +91,28 @@ class Admin extends Model
 
     function userIP(){
         $ip = $_SERVER['REMOTE_ADDR'];
-        if( !$ip )
-            return false;
-        if( !empty( $_SERVER['HTTP_CLIENT_IP'] ) )
-            $ip = $_SERVER['HTTP_CLIENT_IP'];
-        if( !empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) )
-            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        return sprintf( '%u' , ip2long( $ip ) );
+
+        return $ip;
+    }
+
+
+
+    public function isPostExists($id) {
+        $params = [
+            'id' => $id,
+        ];
+        return $this->db->column('SELECT id FROM tasks WHERE id = :id', $params);
+    }
+
+
+
+    public function postDelete($id)
+    {
+        $params = [
+            'id' => $id,
+        ];
+        $this->db->query('DELETE  FROM tasks WHERE id=:id', $params);
+        //unlink('public/materials/'.$id.'.jpg');
     }
 
 

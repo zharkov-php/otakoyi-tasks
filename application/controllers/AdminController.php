@@ -3,6 +3,7 @@
 namespace application\controllers;
 
 use application\core\Controller;
+use application\models\Admin;
 use application\models\Main;
 
 
@@ -36,7 +37,7 @@ class AdminController extends Controller
             'news' => $result,
         ];
 
-        $this->view->render('Головна сторінка через контроллер через змінну ', $vars);
+        $this->view->render('Головна сторінка АДМіНКИ через контроллер через змінну ', $vars);
     }
 
 
@@ -45,6 +46,7 @@ class AdminController extends Controller
      */
     public function loginAction()
     {
+
         if (isset($_SESSION['admin'])) {
             $this->view->redirect('/admin/tasks');
         }
@@ -106,7 +108,14 @@ class AdminController extends Controller
 	public function deleteAction()
     {
 
-		$this->view->redirect('/admin/tasks');
+        //myDebug($this->route);
+        $admin = new Admin();
+        /*if (!$admin->isPostExists($this->route['id'])) {
+            $this->view->errorCode(404);
+        }*/
+        $admin->postDelete($this->route['id']);
+
+        $this->view->redirect('/admin/tasks');
 	}
 
 

@@ -5,22 +5,21 @@
  * ролі
  */
 return [
-	'all' => [
-		'login',
+    'all' => [
+        'login',
+    ],
+    'authorize' => [
+        //
+    ],
+    'guest' => [
+        //
+    ],
+    'admin' => [
+        'tasks',
+        'logout',
         'add',
-	],
-	'authorize' => [
-		//
-	],
-	'guest' => [
-		//
-	],
-	'admin' => [
-		'tasks',
-		'logout',
-		'add',
-		'edit',
-		'delete',
+        'edit',
+        'delete',
 
-	],
+    ],
 ];
