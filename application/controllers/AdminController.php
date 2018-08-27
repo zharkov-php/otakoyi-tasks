@@ -110,9 +110,9 @@ class AdminController extends Controller
 
         //myDebug($this->route);
         $admin = new Admin();
-        /*if (!$admin->isPostExists($this->route['id'])) {
+        if (!$admin->isPostExists($this->route['id'])) {
             $this->view->errorCode(404);
-        }*/
+        }
         $admin->postDelete($this->route['id']);
 
         $this->view->redirect('/admin/tasks');
